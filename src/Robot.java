@@ -28,6 +28,25 @@ public class Robot {
         }
 
     }
+    public double checkCost() {
+        if (age <= 5) {
+            return 10000.00;
+        } else if (age <= 10) {
+            return 7500.00;
+        } else return 5000.00;
+    }
+    public void sendAgeMsg() throws IllegalArgumentException {
+        try {
+            if (age > 25) {
+                throw new IllegalArgumentException("Age too old");
+            }
+
+        } catch (IllegalArgumentException e) {
+            System.out.println("Error " + e.getMessage());
+        }
+        System.out.println( "Age ok");
+    }
+
     public String checkage() {
         if (age <= 20){
             return "Age ok";
