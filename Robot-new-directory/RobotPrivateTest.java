@@ -65,5 +65,27 @@ class RobotPrivateTest {
         System.out.println("The value in f (age) is " + f.get(target));
         assertEquals( 7,  result);
     }
+    @Test
+    public void testSetDriverNum() throws Exception {
+        System.out.println("testSetDriverMember");
+        Driver D = new Driver("bob",103);
+
+        Class secretClass = D.getClass();
+
+        /*Retrieve the field name */
+        Field d = secretClass.getDeclaredField("driverNum");
+
+        /* make sure the field is accessible. */
+        d.setAccessible(true);
+
+        /* get the value of the field */
+        System.out.println("The value in f (age) is " + d.get(D));
+
+        int result =  d.getInt(D);
+
+        /* the string is printed if the test fails */
+        assertEquals( 103,  103);
+    }
+
 }
 
